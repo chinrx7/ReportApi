@@ -1,0 +1,26 @@
+2022-Dec-27 13:03:08    Report API               Starting
+2022-Dec-27 13:03:23    Report API               Starting
+2022-Dec-27 13:04:13    Report API               Starting
+2022-Dec-27 13:04:14    Report API               Configuration Loaded
+2022-Dec-27 13:05:14    Report API               Starting
+2022-Dec-27 13:05:14    Report API               Configuration Loaded
+2022-Dec-27 13:10:15    Report API               Starting
+2022-Dec-27 13:10:16    Report API               Configuration Loaded
+2022-Dec-27 13:17:12    Report API               Starting
+2022-Dec-27 13:17:13    Report API               Configuration Loaded
+2022-Dec-27 13:18:11    Report API               Starting
+2022-Dec-27 13:18:11    Report API               Configuration Loaded
+2022-Dec-27 13:18:27    Report API               Starting
+2022-Dec-27 13:18:27    Report API               Configuration Loaded
+2022-Dec-27 13:21:22    Report API               Starting
+2022-Dec-27 13:21:22    Report API               Configuration Loaded
+2022-Dec-27 13:23:14    Report API               Starting
+2022-Dec-27 13:23:15    Report API               Configuration Loaded
+2022-Dec-27 13:24:01    Report API               Starting
+2022-Dec-27 13:24:01    Report API               Configuration Loaded
+2022-Dec-27 13:24:40    Report API               Starting
+2022-Dec-27 13:24:41    Report API               Configuration Loaded
+2022-Dec-27 13:25:26    Report API               Starting
+2022-Dec-27 13:25:26    Report API               Configuration Loaded
+2022-Dec-27 13:28:33    Report API               Starting
+2022-Dec-27 13:28:33    Report API               Configuration Loaded

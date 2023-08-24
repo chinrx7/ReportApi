@@ -1,0 +1,105 @@
+2022-Nov-09 15:34:05    Report API    Starting
+2022-Nov-09 15:34:05    Report API    Configuration Loaded
+2022-Nov-09 15:34:05    Report API    Started
+2022-Nov-09 15:34:46    Report API    Starting
+2022-Nov-09 15:34:46    Report API    Configuration Loaded
+2022-Nov-09 15:34:46    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 15:44:37    Report API    Starting
+2022-Nov-09 15:44:37    Report API    Configuration Loaded
+2022-Nov-09 15:44:38    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 15:51:03    Report API    Starting
+2022-Nov-09 15:51:03    Report API    Configuration Loaded
+2022-Nov-09 15:52:22    Report API    Starting
+2022-Nov-09 15:52:22    Report API    Configuration Loaded
+2022-Nov-09 15:52:22    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 15:54:41    Report API    Starting
+2022-Nov-09 15:54:41    Report API    Configuration Loaded
+2022-Nov-09 15:54:41    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 16:05:18    Report API    Starting
+2022-Nov-09 16:05:18    Report API    Configuration Loaded
+2022-Nov-09 16:05:19    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 16:06:17    Report API    Starting
+2022-Nov-09 16:06:17    Report API    Configuration Loaded
+2022-Nov-09 16:06:17    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 16:07:20    Report API    Starting
+2022-Nov-09 16:07:20    Report API    Configuration Loaded
+2022-Nov-09 16:07:20    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 16:07:46    Report API    Starting
+2022-Nov-09 16:07:46    Report API    Configuration Loaded
+2022-Nov-09 16:07:46    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 16:38:09    Report API    Starting
+2022-Nov-09 16:38:09    Report API    Configuration Loaded
+2022-Nov-09 16:38:09    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 17:54:50    Report API    Starting
+2022-Nov-09 17:54:51    Report API    Configuration Loaded
+2022-Nov-09 17:54:51    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 17:54:55    Report API    Get Requested
+2022-Nov-09 17:55:35    Report API    Get Requested
+2022-Nov-09 17:56:36    Report API    Starting
+2022-Nov-09 17:56:36    Report API    Configuration Loaded
+2022-Nov-09 17:56:36    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 17:56:39    Report API    Get All Requested
+2022-Nov-09 18:33:52    Report API    Starting
+2022-Nov-09 18:33:52    Report API    Configuration Loaded
+2022-Nov-09 18:33:53    Report API    Started http://127.0.0.1:9999
+2022-Nov-09 18:33:57    Report API    Get All Requested
+2022-Nov-09 18:38:00    Report API    Starting
+2022-Nov-09 18:38:00    Report API    Configuration Loaded
+2022-Nov-09 18:38:01    Report API    Started http://127.0.0.1:9999
+2022-Nov-10 11:44:11    Report API    Starting
+2022-Nov-10 11:44:12    Report API    Configuration Loaded
+2022-Nov-10 11:44:12    Report API    Started http://127.0.0.1:9999
+2022-Nov-10 11:45:05    Report API    Get All Requested
+2022-Nov-10 11:55:28    Report API    Starting
+2022-Nov-10 11:55:29    Report API    Configuration Loaded
+2022-Nov-10 11:55:29    Report API    Started http://127.0.0.1:9999
+2022-Nov-10 11:55:32    Report API    Get All Requested
+2022-Nov-11 10:29:51    Report API    Starting
+2022-Nov-11 10:29:52    Report API    Configuration Loaded
+2022-Nov-11 10:29:52    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 10:29:56    Report API    Get All Requested
+2022-Nov-11 11:24:37    Report API    Starting
+2022-Nov-11 11:24:38    Report API    Configuration Loaded
+2022-Nov-11 11:24:38    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:24:41    Report API    Get All Requested
+2022-Nov-11 11:25:18    Report API    Starting
+2022-Nov-11 11:25:18    Report API    Configuration Loaded
+2022-Nov-11 11:25:19    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:25:21    Report API    Get All Requested
+2022-Nov-11 11:26:11    Report API    Starting
+2022-Nov-11 11:26:11    Report API    Configuration Loaded
+2022-Nov-11 11:26:11    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:26:13    Report API    Get All Requested
+2022-Nov-11 11:26:52    Report API    Starting
+2022-Nov-11 11:26:52    Report API    Configuration Loaded
+2022-Nov-11 11:26:53    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:26:53    Report API    Get All Requested
+2022-Nov-11 11:28:41    Report API    Starting
+2022-Nov-11 11:28:41    Report API    Configuration Loaded
+2022-Nov-11 11:28:42    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:28:45    Report API    Get All Requested
+2022-Nov-11 11:30:53    Report API    Starting
+2022-Nov-11 11:30:53    Report API    Configuration Loaded
+2022-Nov-11 11:30:53    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:30:56    Report API    Get All Requested
+2022-Nov-11 11:32:33    Report API    Starting
+2022-Nov-11 11:32:33    Report API    Configuration Loaded
+2022-Nov-11 11:32:33    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:33:05    Report API    Starting
+2022-Nov-11 11:33:05    Report API    Configuration Loaded
+2022-Nov-11 11:33:05    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:33:11    Report API    Get Requested
+2022-Nov-11 11:51:32    Report API    Starting
+2022-Nov-11 11:51:32    Report API    Configuration Loaded
+2022-Nov-11 11:51:32    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:51:36    Report API    Get Requested
+2022-Nov-11 11:55:40    Report API    Starting
+2022-Nov-11 11:55:40    Report API    Configuration Loaded
+2022-Nov-11 11:55:40    Report API    Started http://127.0.0.1:9999
+2022-Nov-11 11:55:48    Report API    Get Requested
+2022-Nov-30 11:47:05    Report API    Starting
+2022-Nov-30 11:47:05    Report API    Configuration Loaded
+2022-Nov-30 11:47:06    Report API    Started http://127.0.0.1:9999
+2022-Dec-27 11:51:46    Report API    Starting
+2022-Dec-27 11:51:46    Report API    Configuration Loaded
+2022-Dec-27 11:51:47    Report API    Started http://127.0.0.1:9999

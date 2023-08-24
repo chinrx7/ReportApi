@@ -1,0 +1,9 @@
+﻿{
+	"Setting": {
+		"Host": "127.0.0.1:8889",
+		"OUTPUT": "C:\\PVV\\Reports\\",
+		"User": "Admin",
+		"Pass": "4321",
+		"Debug": "false"
+	}
+}

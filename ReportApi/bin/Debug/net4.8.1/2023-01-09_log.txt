@@ -1,0 +1,19 @@
+2023-Jan-09 12:09:43    Report API               Starting
+2023-Jan-09 12:09:43    Info                     C:\Users\china\source\repos\ReportApi\ReportApi\bin\Debug\net4.8.1
+2023-Jan-09 12:09:44    Report API               Configuration Loaded
+2023-Jan-09 12:09:44    Report API               Started http://192.168.0.54:8889
+2023-Jan-09 12:09:48    Report API               Get Requested
+2023-Jan-09 12:14:59    Report API               Starting
+2023-Jan-09 12:14:59    Info                     C:\Users\china\source\repos\ReportApi\ReportApi\bin\Debug\net4.8.1
+2023-Jan-09 12:14:59    Report API               Configuration Loaded
+2023-Jan-09 12:15:00    Report API               Started http://192.168.0.54:8889
+2023-Jan-09 12:15:07    Report API               Get Requested
+2023-Jan-09 12:16:35    Report API               Starting
+2023-Jan-09 12:16:35    Info                     C:\Users\china\source\repos\ReportApi\ReportApi\bin\Debug\net4.8.1
+2023-Jan-09 12:16:35    Report API               Configuration Loaded
+2023-Jan-09 12:16:35    Report API               Started http://192.168.0.54:8889
+2023-Jan-09 12:17:40    Report API               Get Requested
+2023-Jan-09 12:18:21    Report API               Get Requested
+2023-Jan-09 12:18:56    Report API               Get Requested
+2023-Jan-09 12:19:01    Report API               Get Requested
+2023-Jan-09 12:22:48    Report API               Get Requested

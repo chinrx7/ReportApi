@@ -1,0 +1,11 @@
+﻿{
+	"Setting": {
+		"Host": "127.0.0.1:8889",
+		"CHMIHOST":  "192.168.111.11:9000",
+		"OUTPUT": "C:\\PVV\\Reports\\",
+		"User": "Admin",
+		"Pass": "4321",
+		"Report" "D:\\Reports\\",
+		"Debug": "false"
+	}
+}
