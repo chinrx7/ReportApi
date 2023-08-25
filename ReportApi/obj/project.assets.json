@@ -4012,11 +4012,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\PVV\\ReportApi\\ReportApi\\ReportApi.csproj",
+      "projectUniqueName": "C:\\Users\\sysadmin\\Documents\\ReportApi\\ReportApi\\ReportApi.csproj",
       "projectName": "ReportApi",
-      "projectPath": "C:\\PVV\\ReportApi\\ReportApi\\ReportApi.csproj",
+      "projectPath": "C:\\Users\\sysadmin\\Documents\\ReportApi\\ReportApi\\ReportApi.csproj",
       "packagesPath": "C:\\Users\\sysadmin\\.nuget\\packages\\",
-      "outputPath": "C:\\PVV\\ReportApi\\ReportApi\\obj\\",
+      "outputPath": "C:\\Users\\sysadmin\\Documents\\ReportApi\\ReportApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sysadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",

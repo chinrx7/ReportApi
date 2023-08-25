@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\bin\\Debug",
-    "\\bin\\Debug\\net4.8.1"
+    ""
   ],
-  "SelectedNode": "\\Worker.cs",
+  "SelectedNode": "\\genReport.cs",
   "PreviewInSolutionExplorer": false
 }

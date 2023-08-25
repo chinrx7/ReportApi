@@ -213,7 +213,7 @@ namespace ReportApi
 
             foreach(LIST L in building)
             {
-                string mName = "\\BillMaster{0}";
+                string mName = "\\BillMaster1";
                 mName = string.Format(mName,L.BUILDINGS.Count.ToString());
 
                 var m2Val = new List<ReportVal>();
@@ -238,42 +238,44 @@ namespace ReportApi
 
                 CultureInfo cTH = CultureInfo.CreateSpecificCulture("th-TH");
 
-                worksheet.Cells[4, 4] = "หนังสือแจ้งค่าไฟฟ้า ระบบโซล่าเซลล์ ประจำเดือนเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy",cTH);
+                worksheet.Cells[3, 3] = "หนังสือแจ้งค่าไฟฟ้า ระบบโซล่าเซลล์ ประจำเดือนเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy",cTH);
 
-                worksheet.Cells[15, 9] = price.ToString("##.00");
-                worksheet.Cells[17,9] = dprice.ToString("##.00");
-                worksheet.Cells[11, 2] = L.CODE;
-                worksheet.Cells[11, 4] = L.ID;
-                worksheet.Cells[8, 4] = L.SITE;
-                worksheet.Cells[11, 6] = METERID;
+                worksheet.Cells[14, 6] = price.ToString("##.00");
+                worksheet.Cells[17, 6] = (dprice-price).ToString("##.00");
+                worksheet.Cells[11, 3] = L.CODE;
+                worksheet.Cells[11, 3] = L.ID;
+                worksheet.Cells[8, 3] = L.SITE;
+                worksheet.Cells[11, 4] = METERID;
 
-                int fix = 15;
+                int fix = 14;
                 int row = fix;
                 int nrow =fix + m2Val.Count;
 
                 for (int i=0;i<m3Val.Count;i++)
                 {
-                    worksheet.Cells[row, 2] = m3Val[i].NAME;
-                    worksheet.Cells[row, 5] = m3Val[i].WHL;
-                    worksheet.Cells[row, 4] = m3Val[i].WHR;
+                    worksheet.Cells[row, 3] = m3Val[i].NAME;
 
-                    double AMount, Unit;
+                    double AMount, Unit, UnitM2;
                     Unit = double.Parse(m3Val[i].WHR) - double.Parse(m3Val[i].WHL);
-                    AMount = Unit * dprice;
+                    UnitM2 = double.Parse(m2Val[i].WHR) - double.Parse(m2Val[i].WHL);
+                    AMount = (Unit-UnitM2) * dprice;
 
-                    Write.WriteBillBuilding(m3Val[i].NO, AMount.ToString("00.00"), Unit.ToString("00.00"), dprice.ToString("00.00"), repDate);
+                    worksheet.Cells[row, 5] = (Unit - UnitM2);
+                    //worksheet.Cells[row, 7] = AMount;
+
+                    Write.WriteBillBuilding(m3Val[i].NO, AMount.ToString("00.00"), (Unit - UnitM2).ToString("00.00"), dprice.ToString("00.00"), repDate);
 
                     row++;
                 }
 
-                for (int ii = 0; ii < m2Val.Count; ii++)
-                {
-                    worksheet.Cells[nrow, 2] = m2Val[ii].NAME;
-                    worksheet.Cells[nrow, 5] = m2Val[ii].WHL;
-                    worksheet.Cells[nrow, 4] = m2Val[ii].WHR;
+                //for (int ii = 0; ii < m2Val.Count; ii++)
+                //{
+                //    worksheet.Cells[nrow, 2] = m2Val[ii].NAME;
+                //    worksheet.Cells[nrow, 5] = m2Val[ii].WHL;
+                //    worksheet.Cells[nrow, 4] = m2Val[ii].WHR;
 
-                    nrow++;
-                }
+                //    nrow++;
+                //}
 
                 // worksheet.Cells[30, 5] = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 20).ToShortDateString();
 
@@ -382,7 +384,7 @@ namespace ReportApi
         public static ReportVal GetM3(string Name, string PlantID, string M3MAP, string NO)
         {
             var Rval = new ReportVal();
-            Rval.NAME = "พลังงาน Solar อาคาร " + Name;
+            Rval.NAME = Name;
 
             DateTime dateTime1 = repDate;
             string StartTime = dateTime1.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
