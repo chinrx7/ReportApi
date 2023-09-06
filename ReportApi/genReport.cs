@@ -342,7 +342,7 @@ namespace ReportApi
             worksheet.Cells[14, 5] = sWH.ToString();
 
             worksheet.Cells[13, 10] = uPrice.ToString();
-            worksheet.Cells[14, 10] = dPrice.ToString();
+            worksheet.Cells[14, 10] = (uPrice * (46.1 / 100)).ToString();
 
             if(File.Exists(SaveXcel)) { File.Delete(SaveXcel); }
             if (File.Exists(SavePdf)) { File.Delete(SavePdf); }
