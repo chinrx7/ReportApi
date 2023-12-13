@@ -301,7 +301,10 @@ namespace ReportApi
                 workbook.Close();
                 excelApp.Quit();
             }
-            GenSumReport(price, dprice);
+            if (Type == "1")
+            {
+                GenSumReport(price, dprice);
+            }
             
         }
 
@@ -315,14 +318,14 @@ namespace ReportApi
             string SaveXcel = string.Format(xCel, dateTime.ToString("yyyy"), dateTime.ToString("MMM"));
 
             string Tag = "PLC1\\Calculation00\\Energy\\WH";
-            string StartTime = dateTime.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
+            string StartTime = dateTime.ToString("yyyy-MM-dd");
 
             Records rec = GetVal(Tag, StartTime, "9000");
 
             double sWH = double.Parse(rec.Value);
 
             dateTime = repDate.AddMonths(1);
-            string EndTime = dateTime.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
+            string EndTime = dateTime.ToString("yyyy-MM-dd");
 
             rec = GetVal(Tag, EndTime , "9000");
             double eWh = double.Parse(rec.Value);
