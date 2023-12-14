@@ -66,7 +66,7 @@ namespace ReportApi
             public string NAME { get; set; }
             public string WHL { set; get; }
             public string WHR { set; get; }
-            public string NO {  set; get; }
+            public string NO { set; get; }
         }
 
         public static Records GetVal(string ItemName, string TimeStmp, string port)
@@ -121,10 +121,10 @@ namespace ReportApi
             KillExcel();
         }
 
-        public static void SelectedReport(DateTime reportDate,string Unit, string Amount, string Type)
+        public static void SelectedReport(DateTime reportDate, string Unit, string Amount, string Type)
         {
             SUnit = double.Parse(Unit);
-            SAmount= double.Parse(Amount);
+            SAmount = double.Parse(Amount);
 
             repDate = reportDate;
             GetBuilding(Type);
@@ -206,15 +206,15 @@ namespace ReportApi
 
 
             price = SAmount / SUnit;
-            dprice = price - (price*0.35);
+            dprice = price - (price * 0.35);
 
 
             Write.WriteBill(SAmount.ToString(), SUnit.ToString(), repDate);
 
-            foreach(LIST L in building)
+            foreach (LIST L in building)
             {
                 string mName = "\\BillMaster1";
-                mName = string.Format(mName,L.BUILDINGS.Count.ToString());
+                mName = string.Format(mName, L.BUILDINGS.Count.ToString());
 
                 var m2Val = new List<ReportVal>();
                 var m3Val = new List<ReportVal>();
@@ -225,7 +225,7 @@ namespace ReportApi
 
                 foreach (BUILDINGS B in L.BUILDINGS)
                 {
-                    m2Val.Add(GetM2(B.CODE, B.PLANTID, B.M2, B.M3.Replace("M2","")));
+                    m2Val.Add(GetM2(B.CODE, B.PLANTID, B.M2, B.M3.Replace("M2", "")));
                     m3Val.Add(GetM3(B.CODE, B.PLANTID, B.M3, B.M3.Replace("TOU", "")));
                     METERID = B.PLANTID;
                 }
@@ -238,27 +238,27 @@ namespace ReportApi
 
                 CultureInfo cTH = CultureInfo.CreateSpecificCulture("th-TH");
 
-                worksheet.Cells[3, 3] = "หนังสือแจ้งค่าไฟฟ้า ระบบโซล่าเซลล์ ประจำเดือนเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy",cTH);
+                worksheet.Cells[3, 3] = "หนังสือแจ้งค่าไฟฟ้า ระบบโซล่าเซลล์ ประจำเดือนเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy", cTH);
 
                 worksheet.Cells[14, 6] = price.ToString("##.00");
-                worksheet.Cells[17, 6] = (dprice-price).ToString("##.00");
-                worksheet.Cells[11, 3] = L.CODE;
+                worksheet.Cells[17, 6] = (dprice - price).ToString("##.00");
+                worksheet.Cells[11, 2] = L.CODE;
                 worksheet.Cells[11, 3] = L.ID;
                 worksheet.Cells[8, 3] = L.SITE;
                 worksheet.Cells[11, 4] = METERID;
 
                 int fix = 14;
                 int row = fix;
-                int nrow =fix + m2Val.Count;
+                int nrow = fix + m2Val.Count;
 
-                for (int i=0;i<m3Val.Count;i++)
+                for (int i = 0; i < m3Val.Count; i++)
                 {
                     worksheet.Cells[row, 3] = m3Val[i].NAME;
 
                     double AMount, Unit, UnitM2;
                     Unit = double.Parse(m3Val[i].WHR) - double.Parse(m3Val[i].WHL);
                     UnitM2 = double.Parse(m2Val[i].WHR) - double.Parse(m2Val[i].WHL);
-                    AMount = (Unit-UnitM2) * dprice;
+                    AMount = (Unit - UnitM2) * dprice;
 
                     worksheet.Cells[row, 5] = (Unit - UnitM2);
                     //worksheet.Cells[row, 7] = AMount;
@@ -267,6 +267,7 @@ namespace ReportApi
 
                     row++;
                 }
+                worksheet.Calculate();
 
                 //for (int ii = 0; ii < m2Val.Count; ii++)
                 //{
@@ -296,6 +297,7 @@ namespace ReportApi
                 if (File.Exists(Savepath)) { File.Delete(Savepath); }
                 if (File.Exists(Savepath2)) { File.Delete(Savepath2); }
 
+                
                 workbook.SaveAs(Savepath);
                 workbook.ExportAsFixedFormat(XlFixedFormatType.xlTypePDF, Savepath2);
                 workbook.Close();
@@ -305,11 +307,39 @@ namespace ReportApi
             {
                 GenSumReport(price, dprice);
             }
-            
+
+        }
+
+        public static double GetMinusTou()
+        {
+            double mWh = 0;
+            DateTime dateTime1 = repDate;
+            string StartTime = dateTime1.ToString("yyyy-MM-01");
+            string EndTime = dateTime1.AddMonths(1).ToString("yyyy-MM-01");
+
+            string[] Meters = { "TOU05", "TOU10", "TOU25", "TOU27", "TOU34", "TOU38", "TOU39" };
+
+            string Tag = "PLC1\\M3\\{0}\\WH_EXP";
+
+            foreach (string Meter in Meters)
+            {
+                string mName = string.Format(Tag, Meter);
+                Records rec = new Records();
+                Records rec2 = new Records();
+                rec = GetVal(mName, StartTime, "9000");
+                rec2 = GetVal(mName, EndTime, "9000");
+
+                double d = double.Parse(rec2.Value) - double.Parse(rec.Value);
+                mWh += d;
+
+            }
+
+            return mWh;
         }
 
         public static void GenSumReport(double uPrice, double dPrice)
         {
+            GetMinusTou();
             DateTime dateTime = repDate;
             string fPdf = Program._set.OUTPUT + "{0}\\{1}\\00.pdf";
             string xCel = Program._set.OUTPUT + "{0}\\{1}\\00.xlsx";
@@ -330,6 +360,12 @@ namespace ReportApi
             rec = GetVal(Tag, EndTime , "9000");
             double eWh = double.Parse(rec.Value);
 
+            double minusWH = GetMinusTou();
+
+            double eeWh = eWh - minusWH;
+
+            double TotalWH = (eWh - sWH) - minusWH;
+
             string MasterPath = Program.path + "\\BSUMBILLMASTER.xlsx";
             Application excelApp = new Application();
             excelApp.DisplayAlerts = false;
@@ -341,8 +377,9 @@ namespace ReportApi
             worksheet.Cells[2,1] = "หนังสือแจ้งค่าไฟฟ้าระบบโซลาเซลล์ ประจำเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy", cTH);
             worksheet.Cells[10, 10] = dateTime.ToString("dd MMMM yyyy", cTH);
 
-            worksheet.Cells[14, 4] = eWh.ToString();
+            worksheet.Cells[14, 4] = eeWh.ToString();
             worksheet.Cells[14, 5] = sWH.ToString();
+            worksheet.Cells[14, 6] = TotalWH.ToString();
 
             worksheet.Cells[13, 10] = uPrice.ToString();
             worksheet.Cells[14, 10] = (uPrice * (46.1 / 100)).ToString();
@@ -362,22 +399,16 @@ namespace ReportApi
             Rval.NAME = "พลังงาน solar ที่ไหลออก อาคาาร " + Name;
 
             DateTime dateTime1 = repDate;
-            string StartTime = dateTime1.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
+            string StartTime = dateTime1.ToString("yyyy-MM-01");
 
 
-            string Tag = "PLC1\\M2\\" + M2MAP + "\\TOU_WHR";
+            string Tag = "PLC1\\M2\\" + M2MAP + "\\TOU_WHR_SUM";
 
             Records rec = GetVal(Tag, StartTime, "9000");
 
-            Rval.WHL = rec.Value;
+            Rval.WHR = rec.Value;
             if (Rval.WHL == null) { Rval.WHL = "0"; }
 
-            DateTime EndTime1 = repDate.AddMonths(1);
-            string EndTime = EndTime1.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
-
-            rec = GetVal(Tag, EndTime, "9000");
-
-            Rval.WHR = rec.Value;
             if (Rval.WHR == null) { Rval.WHR = "0"; }
             Rval.NO= NO;
 
@@ -390,7 +421,7 @@ namespace ReportApi
             Rval.NAME = Name;
 
             DateTime dateTime1 = repDate;
-            string StartTime = dateTime1.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
+            string StartTime = dateTime1.ToString("yyyy-MM-01");
 
 
 
@@ -402,7 +433,7 @@ namespace ReportApi
             if (Rval.WHL == null) { Rval.WHL = "0"; }
 
             DateTime EndTime1 = repDate.AddMonths(1);
-            string EndTime = EndTime1.ToString("yyyy-MM-dd") + "T17:00:00+07:00";
+            string EndTime = EndTime1.ToString("yyyy-MM-01");
 
             rec = GetVal(Tag, EndTime, "9000");
 
