@@ -317,7 +317,7 @@ namespace ReportApi
             string StartTime = dateTime1.ToString("yyyy-MM-01");
             string EndTime = dateTime1.AddMonths(1).ToString("yyyy-MM-01");
 
-            string[] Meters = { "TOU05", "TOU10", "TOU25", "TOU27", "TOU34", "TOU38", "TOU39" };
+            string[] Meters = { "TOU05", "TOU10", "TOU25", "TOU29", "TOU34", "TOU36", "TOU38" };
 
             string Tag = "PLC1\\M3\\{0}\\WH_EXP";
 
@@ -377,12 +377,22 @@ namespace ReportApi
             worksheet.Cells[2,1] = "หนังสือแจ้งค่าไฟฟ้าระบบโซลาเซลล์ ประจำเดือน " + repDate.ToString("MMMM", cTH) + " " + repDate.ToString("yyyy", cTH);
             worksheet.Cells[10, 10] = dateTime.ToString("dd MMMM yyyy", cTH);
 
-            worksheet.Cells[14, 4] = eeWh.ToString();
-            worksheet.Cells[14, 5] = sWH.ToString();
-            worksheet.Cells[14, 6] = TotalWH.ToString();
+            worksheet.Cells[14, 4] = eeWh.ToString("0.00");
+            worksheet.Cells[14, 5] = sWH.ToString("0.00");
+            worksheet.Cells[14, 6] = TotalWH.ToString("0.00");
 
-            worksheet.Cells[13, 10] = uPrice.ToString();
-            worksheet.Cells[14, 10] = (uPrice * (46.1 / 100)).ToString();
+            worksheet.Cells[13, 10] = uPrice.ToString("0.00");
+
+            double disPrice = uPrice * (46.1 / 100);
+
+            worksheet.Cells[14, 10] = disPrice.ToString("0.00");
+
+            //double tBill = TotalWH * uPrice;
+            //double mBill = TotalWH * 1.91;
+
+            //double totoalBill = (TotalWH * uPrice) - (TotalWH * disPrice);
+
+            //worksheet.Cells[14,7] = totoalBill.ToString();
 
             if(File.Exists(SaveXcel)) { File.Delete(SaveXcel); }
             if (File.Exists(SavePdf)) { File.Delete(SavePdf); }
