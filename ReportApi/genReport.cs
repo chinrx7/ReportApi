@@ -339,7 +339,7 @@ namespace ReportApi
 
         public static void GenSumReport(double uPrice, double dPrice)
         {
-            GetMinusTou();
+            //GetMinusTou();
             DateTime dateTime = repDate;
             string fPdf = Program._set.OUTPUT + "{0}\\{1}\\00.pdf";
             string xCel = Program._set.OUTPUT + "{0}\\{1}\\00.xlsx";
@@ -360,11 +360,11 @@ namespace ReportApi
             rec = GetVal(Tag, EndTime , "9000");
             double eWh = double.Parse(rec.Value);
 
-            double minusWH = GetMinusTou();
+            //double minusWH = GetMinusTou();
 
-            double eeWh = eWh - minusWH;
+            double eeWh = eWh;
 
-            double TotalWH = (eWh - sWH) - minusWH;
+            double TotalWH = (eWh - sWH);
 
             string MasterPath = Program.path + "\\BSUMBILLMASTER.xlsx";
             Application excelApp = new Application();
